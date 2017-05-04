@@ -24,8 +24,9 @@ public class SwordDamage : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider enemy)
+     void OnTriggerEnter(Collider enemy)
     {
+        Debug.Log("gvhgfhgfh");
         if (enemy.CompareTag("Enemy"))
         {
             //badGuys bguy = enemy.GetComponent<badGuys>();
