@@ -23,7 +23,8 @@ public class Camera : MonoBehaviour {
         smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / smoothing);
         mouseLook += smoothV* sensitivity * Time.deltaTime;
 
+        character.transform.rotation = Quaternion.identity;
+        character.transform.Rotate (character.transform.up, mouseLook.x);
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
-        character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
     }
 }
