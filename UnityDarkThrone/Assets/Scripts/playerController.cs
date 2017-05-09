@@ -41,6 +41,18 @@ public class playerController : MonoBehaviour {
             animator.SetBool("strafeleft", true);
         else animator.SetBool("strafeleft", false);
 
+        if (Input.GetMouseButtonDown(0))  //left mouse --attack
+        {
+            animator.SetTrigger("slash");
+            speed = 0.4f; // atrasar quando ataca
+        }
+        // else speed = 3f;  needs fixin'
+        if (Input.GetMouseButtonDown(1))  // right mouse attack
+        {
+            animator.SetTrigger("slashup");
+            speed = 0.4f;
+        }
+
     }
 
     public void TakeDamage(float dd)
