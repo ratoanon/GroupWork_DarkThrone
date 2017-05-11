@@ -8,17 +8,17 @@ public class playerController : MonoBehaviour {
     public float speed = 1f;
     private float health = 100f;
 
-	// Use this for initialization  
-	void Start () {
+    // Use this for initialization  
+    void Start() {
         Cursor.lockState = CursorLockMode.Locked;
         animator = GetComponent<Animator>();
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         playerMove();
-	}
+    }
 
     void playerMove()
     {
@@ -27,18 +27,53 @@ public class playerController : MonoBehaviour {
         transform.Translate(straffe, 0, translation);
 
         if (Input.GetAxis("Vertical") > 0)  //W
+        {
             animator.SetBool("walk", true);
+            if ((Input.GetAxis("Vertical") > 0) && (Input.GetKeyDown("space"))) // ROLL FORWARD
+            {
+                animator.SetBool("frontroll", true);
+                speed = 5f;
+            }
+            else animator.SetBool("frontroll", false); //speed = 3f; 
+
+        }
         else animator.SetBool("walk", false);
+
+
         if (Input.GetAxis("Vertical") < 0)  //S
-            animator.SetBool("walkback", true);
+        { animator.SetBool("walkback", true);
+            if ((Input.GetAxis("Vertical") < 0) && (Input.GetKey("space"))) //RUN BACK
+            {
+                animator.SetBool("runback", true);
+                speed = 5f;
+            }
+            else animator.SetBool("runback", false);
+        }
         else animator.SetBool("walkback", false);
 
 
         if (Input.GetAxis("Horizontal") > 0)  //D
-            animator.SetBool("strafe", true);
+        { animator.SetBool("strafe", true);
+            if ((Input.GetAxis("Horizontal") > 0) && (Input.GetKey("space"))) //RUN LEFT
+            {
+                animator.SetBool("runleft", true);
+                speed = 5f;
+            }
+            else animator.SetBool("runleft", false);
+        }
         else animator.SetBool("strafe", false);
+
+
         if (Input.GetAxis("Horizontal") < 0)  //A
+        {
             animator.SetBool("strafeleft", true);
+            if ((Input.GetAxis("Horizontal") < 0) && (Input.GetKey("space"))) //RUN RIGHT
+            {
+                animator.SetBool("runright", true);
+                speed = 5f;
+            }
+            else animator.SetBool("runright", false);
+        }
         else animator.SetBool("strafeleft", false);
 
         if (Input.GetMouseButtonDown(0))  //left mouse --attack
