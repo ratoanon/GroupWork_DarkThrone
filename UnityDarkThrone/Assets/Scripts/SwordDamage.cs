@@ -6,12 +6,12 @@ public class SwordDamage : MonoBehaviour
 {
     public GameObject badguy;
 
-    public bool isAttacking;
+    private bool isAttacking;
 
     // Use this for initialization
     void Start()
     {
-        badguy = GameObject.FindGameObjectWithTag("Enemy");
+        //badguy = GameObject.FindGameObjectsWithTag("Enemy");
         isAttacking = false;
     }
 
@@ -31,6 +31,7 @@ public class SwordDamage : MonoBehaviour
         {
             //badGuys bguy = enemy.GetComponent<badGuys>();
             isAttacking = true;
+            badguy = enemy.gameObject;
         }
     }
 
