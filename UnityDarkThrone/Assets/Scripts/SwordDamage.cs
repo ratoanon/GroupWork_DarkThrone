@@ -26,9 +26,10 @@ public class SwordDamage : MonoBehaviour
 
      void OnTriggerEnter(Collider enemy)
     {
-        Debug.Log("gvhgfhgfh");
+        Debug.Log("Outside");
         if (enemy.CompareTag("Enemy"))
         {
+            Debug.Log("Inside");
             //badGuys bguy = enemy.GetComponent<badGuys>();
             isAttacking = true;
             badguy = enemy.gameObject;
