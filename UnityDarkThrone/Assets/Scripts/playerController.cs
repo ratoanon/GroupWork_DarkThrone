@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour {
 
-    private Animator animator;
-    public float speed = 1f;
+    public Animator animator;
+    private float speed = 3f;
     private float health = 100f;
-
+    public bool isAtacking = false;
     // Use this for initialization  
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
@@ -80,8 +80,10 @@ public class playerController : MonoBehaviour {
         {
             animator.SetTrigger("slash");
             speed = 0.4f; // atrasar quando ataca
+            isAtacking = true;
+            Invoke("cancelAtack", 1.2f);
         }
-        // else speed = 3f;  needs fixin'
+        // else speed = 3f;  needs 0fixin'
         if (Input.GetMouseButtonDown(1))  // right mouse attack
         {
             animator.SetTrigger("slashup");
@@ -94,6 +96,12 @@ public class playerController : MonoBehaviour {
     {
         health -= dd;
         
+    }
+
+    void cancelAtack()
+    {
+        speed = 3f;
+        isAtacking = false;
     }
 }
 

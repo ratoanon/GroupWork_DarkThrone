@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SwordDamage : MonoBehaviour
 {
-    public GameObject badguy;
+    public GameObject player;
+    private GameObject badguy;
 
     private bool isAttacking;
 
@@ -47,6 +48,7 @@ public class SwordDamage : MonoBehaviour
     void Attack()
     {
         badGuys bg = badguy.GetComponent<badGuys>();
+        if (player.GetComponent<playerController>().isAtacking)
         bg.TakeDamage(40);
     }
 }
