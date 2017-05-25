@@ -20,7 +20,7 @@ public class badGuys : MonoBehaviour {
         public void TakeDamage(float d)
     {
         currenthp -= d;
-        float scaledhp = currenthp / maxhp;
+        float scaledhp = currenthp / maxhp; 
         setHp(scaledhp);
         if (scaledhp <= 0.0f)
         {
