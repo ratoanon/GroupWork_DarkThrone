@@ -17,8 +17,10 @@ public class badGuys : MonoBehaviour {
 
         public void TakeDamage(float d)
     {
-        hp -= d;
-        if (hp <= 0.0f)
+        currenthp -= d;
+        float scaledhp = currenthp / maxhp;
+        setHp(scaledhp);
+        if (scaledhp <= 0.0f)
         {
             DieEnemy();
         }
