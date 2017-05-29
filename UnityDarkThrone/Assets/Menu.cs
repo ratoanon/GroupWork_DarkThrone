@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-
-    public void ButtonStart(int Tutorial)
+    public Canvas start;
+    
+        public void ButtonStart(int Tutorial)
     {
         SceneManager.LoadScene(Tutorial);
     }
-
 }
+
+
 
