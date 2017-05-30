@@ -35,6 +35,8 @@ public class badGuys : MonoBehaviour {
 
     public void setHp(float myHp)
     {
+        if (myHp < 0)
+            myHp = 0;
         healthBar.transform.localScale = new Vector3(myHp, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
     }
 

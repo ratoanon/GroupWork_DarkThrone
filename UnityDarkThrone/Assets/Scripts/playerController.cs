@@ -81,7 +81,7 @@ public class playerController : MonoBehaviour {
             animator.SetTrigger("slash");
             speed = 0.4f; // atrasar quando ataca
             isAtacking = true;
-            Invoke("cancelAtack", 1.2f);
+            Invoke("cancelAtack", 1f);
         }
         // else speed = 3f;  needs 0fixin'
         if (Input.GetMouseButtonDown(1))  // right mouse attack
