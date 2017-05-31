@@ -6,14 +6,14 @@ public class playerController : MonoBehaviour {
 
     public Animator animator;
     private float speed = 3f;
-    private float health = 100f;
+    public float health = 100f;
     public bool isAtacking = false;
     // Use this for initialization  
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
         animator = GetComponent<Animator>();
     }
-
+        
     // Update is called once per frame
     void Update()
     {
