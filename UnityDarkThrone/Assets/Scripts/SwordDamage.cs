@@ -7,41 +7,14 @@ public class SwordDamage : MonoBehaviour
     public GameObject player;
     private GameObject badguy;
 
-    private bool isAttacking;
-
-    // Use this for initialization
-    void Start()
-    {
-        //badguy = GameObject.FindGameObjectsWithTag("Enemy");
-        isAttacking = false;
-    }
-
     // Update is called once per frame
-    void Update()
-    {
-        if (isAttacking)
-        {
-                Attack();
-        }
-    }
 
-     void OnTriggerEnter(Collider enemy)
+     void OnTriggerStay(Collider enemy)
     {
-        Debug.Log("Outside");
         if (enemy.CompareTag("Enemy"))
         {
-            Debug.Log("Inside");
-            //badGuys bguy = enemy.GetComponent<badGuys>();
-            isAttacking = true;
             badguy = enemy.gameObject;
-        }
-    }
-
-    void OnTriggerExit(Collider enemy)
-    {
-        if (enemy.CompareTag("Enemy"))
-        {
-            isAttacking = false;
+            Attack();
         }
     }
 
@@ -49,6 +22,10 @@ public class SwordDamage : MonoBehaviour
     {
         badGuys bg = badguy.GetComponent<badGuys>();
         if (player.GetComponent<playerController>().isAtacking)
-        bg.TakeDamage(40);
+        {
+            bg.TakeDamage(40);
+            player.GetComponent<playerController>().isAtacking = false;
+        }
+        
     }
 }
