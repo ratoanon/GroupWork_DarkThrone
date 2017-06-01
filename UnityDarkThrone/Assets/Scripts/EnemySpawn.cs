@@ -9,13 +9,12 @@ public class EnemySpawn : MonoBehaviour {
     public GameObject Enemy;
 	// Use this for initialization
 	void Start () {
-        spawn();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void FixedUpdate () {
+        Invoke("spawn", 3f);
+    }
 
     void spawn()
     {
