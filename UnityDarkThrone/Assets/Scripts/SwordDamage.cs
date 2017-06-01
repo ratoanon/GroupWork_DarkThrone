@@ -7,7 +7,6 @@ public class SwordDamage : MonoBehaviour
     public GameObject player;
     private GameObject badguy;
 
-    // Update is called once per frame
 
      void OnTriggerStay(Collider enemy)
     {
