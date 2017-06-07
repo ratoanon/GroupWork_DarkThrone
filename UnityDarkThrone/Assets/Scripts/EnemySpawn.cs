@@ -7,13 +7,16 @@ public class EnemySpawn : MonoBehaviour {
     public Vector3 center;
     public Vector3 size;
     public GameObject Enemy;
+    private float startWait;
+    private int spawnWait;
 	// Use this for initialization
 	void Start () {
+        StartCoroutine(waitSpawner());
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-        Invoke("spawn", 3f);
+	void Update () {
+        spawnWait = Random.Range(1, 3);
     }
 
     void spawn()
@@ -23,6 +26,16 @@ public class EnemySpawn : MonoBehaviour {
             Random.Range(-size.z / 2, size.z / 2));
 
         Instantiate(Enemy, pos, Quaternion.identity);
+    }
+    IEnumerator waitSpawner()
+    {
+        yield return new WaitForSeconds(startWait);
+        while (true)
+        {
+            spawn();
+
+            yield return new WaitForSeconds(spawnWait);
+        }
     }
 
     void OnDrawGizmosSelected()
