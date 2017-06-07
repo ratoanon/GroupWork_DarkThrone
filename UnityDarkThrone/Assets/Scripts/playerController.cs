@@ -8,6 +8,7 @@ public class playerController : MonoBehaviour {
     private float speed = 3f;
     public float health = 100f;
     public bool isAtacking = false;
+    public bool isAtacking2 = false;
     // Use this for initialization  
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
@@ -83,11 +84,13 @@ public class playerController : MonoBehaviour {
             isAtacking = true;
             Invoke("cancelAtack", 1f);
         }
-        // else speed = 3f;  needs 0fixin'
+        // else speed = 3f;  needs fixin
         if (Input.GetMouseButtonDown(1))  // right mouse attack
         {
             animator.SetTrigger("slashup");
+            isAtacking2 = true;
             speed = 0.4f;
+            Invoke("cancelAtack2", 1f);
         }
 
     }
@@ -102,6 +105,11 @@ public class playerController : MonoBehaviour {
     {
         speed = 3f;
         isAtacking = false;
+    }
+    void cancelAtack2()
+    {
+        speed = 3f;
+        isAtacking2 = false;
     }
 }
 
