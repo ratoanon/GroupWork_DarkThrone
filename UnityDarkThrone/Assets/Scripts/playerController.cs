@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour {
 
+
+    public AudioClip fight1, fight2, step, run;
+    AudioSource Slash1, Slash2, Walk, Run;
     public Animator animator;
     private float speed = 3f;
     public float health = 100f;
@@ -13,12 +16,17 @@ public class playerController : MonoBehaviour {
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
         animator = GetComponent<Animator>();
+        Slash1 = GetComponent<AudioSource>();
+        Slash2 = GetComponent<AudioSource>();
+        Walk = GetComponent<AudioSource>();
+        Run = GetComponent<AudioSource>();
     }
         
     // Update is called once per frame
     void Update()
     {
         playerMove();
+        
     }
 
     void playerMove()
@@ -27,9 +35,11 @@ public class playerController : MonoBehaviour {
         float straffe = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         transform.Translate(straffe, 0, translation);
 
-        if (Input.GetAxis("Vertical") > 0)  //W
+        if (Input.GetAxis("Vertical") > 0 )  //W
         {
             animator.SetBool("walk", true);
+           // Walk.Play();
+
             if ((Input.GetAxis("Vertical") > 0) && (Input.GetKeyDown("space"))) // ROLL FORWARD
             {
                 animator.SetBool("frontroll", true);
@@ -38,7 +48,11 @@ public class playerController : MonoBehaviour {
             else animator.SetBool("frontroll", false); //speed = 3f; 
 
         }
-        else animator.SetBool("walk", false);
+        else
+        {
+            animator.SetBool("walk", false);
+            Walk.Stop();
+        }
 
 
         if (Input.GetAxis("Vertical") < 0)  //S
@@ -82,6 +96,8 @@ public class playerController : MonoBehaviour {
             animator.SetTrigger("slash");
             speed = 0.4f; // atrasar quando ataca
             isAtacking = true;
+            Slash1.PlayOneShot(fight1, 0.6f);
+
             Invoke("cancelAtack", 1f);
         }
         // else speed = 3f;  needs fixin
@@ -90,7 +106,9 @@ public class playerController : MonoBehaviour {
             animator.SetTrigger("slashup");
             isAtacking2 = true;
             speed = 0.4f;
-            Invoke("cancelAtack2", 1f);
+            Slash2.PlayOneShot(fight2, 1f);
+
+            Invoke("cancelAtack2", 0.6f);
         }
 
     }
