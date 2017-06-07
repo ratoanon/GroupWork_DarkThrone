@@ -7,6 +7,7 @@ public class EnemyFollows : MonoBehaviour
     UnityEngine.AI.NavMeshAgent agent;
     GameObject player;
     public playerController playerC;
+    public Animator minion;
     Transform  movep;
     float speed = 1.5f;
     float rot = 3f;
@@ -34,5 +35,7 @@ public class EnemyFollows : MonoBehaviour
         Vector3 move = movep.position - transform.position;
             move.Normalize();
             transform.position += move * speed * Time.deltaTime;
+
+        minion.SetBool("Move", true);
     }
 }
