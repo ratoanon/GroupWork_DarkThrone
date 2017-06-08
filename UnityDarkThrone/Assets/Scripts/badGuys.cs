@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class badGuys : MonoBehaviour {
+
+    public Animation animate;
     public float maxhp = 40.0f;
     public float currenthp = 0;
     public GameObject healthBar;
@@ -30,7 +32,8 @@ public class badGuys : MonoBehaviour {
     }
     void DieEnemy()
     {
-        Destroy(gameObject, 1f);
+        // Destroy(gameObject, 1f);
+        animate.Play();
     }
 
     public void setHp(float myHp)

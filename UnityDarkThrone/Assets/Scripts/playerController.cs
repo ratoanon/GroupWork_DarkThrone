@@ -34,11 +34,12 @@ public class playerController : MonoBehaviour {
         float translation = Input.GetAxis("Vertical") * speed * Time.deltaTime;
         float straffe = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         transform.Translate(straffe, 0, translation);
+        
 
-        if (Input.GetAxis("Vertical") > 0 )  //W
+            if (Input.GetAxis("Vertical") > 0 )  //W
         {
             animator.SetBool("walk", true);
-           // Walk.Play();
+            Walk.PlayOneShot(run);
 
             if ((Input.GetAxis("Vertical") > 0) && (Input.GetKeyDown("space"))) // ROLL FORWARD
             {
