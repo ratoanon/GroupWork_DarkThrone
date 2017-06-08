@@ -39,7 +39,7 @@ public class playerController : MonoBehaviour {
             if (Input.GetAxis("Vertical") > 0 )  //W
         {
             animator.SetBool("walk", true);
-            Walk.PlayOneShot(run);
+            //Walk.PlayOneShot(run);
 
             if ((Input.GetAxis("Vertical") > 0) && (Input.GetKeyDown("space"))) // ROLL FORWARD
             {

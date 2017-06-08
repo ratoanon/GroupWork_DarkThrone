@@ -6,9 +6,10 @@ public class SwordDamage : MonoBehaviour
 {
     public GameObject player;
     private GameObject badguy;
+    private GameObject badguyB;
 
 
-     void OnTriggerStay(Collider enemy)
+    void OnTriggerStay(Collider enemy)
     {
         if (enemy.CompareTag("Enemy"))
         {
@@ -25,6 +26,13 @@ public class SwordDamage : MonoBehaviour
             bg.TakeDamage(20);
             player.GetComponent<playerController>().isAtacking = false;
         }
-        
+
+        badGuys bgB = badguyB.GetComponent<badGuys>();
+        if (player.GetComponent<playerController>().isAtacking)
+        {
+            bgB.TakeDamage(20);
+            player.GetComponent<playerController>().isAtacking = false;
+        }
+
     }
 }

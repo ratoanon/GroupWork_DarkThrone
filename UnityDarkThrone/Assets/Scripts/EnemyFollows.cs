@@ -9,7 +9,7 @@ public class EnemyFollows : MonoBehaviour
     public playerController playerC;
     public Animator minion;
     Transform  movep;
-    float speed = 1.5f;
+    public float speed = 1.5f;
     float rot = 3f;
 
 
