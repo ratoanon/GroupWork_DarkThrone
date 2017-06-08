@@ -2,6 +2,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class badGuys : MonoBehaviour {
 
@@ -30,14 +31,16 @@ public class badGuys : MonoBehaviour {
         if (scaledhp <= 0.0f)
         {
             DieEnemy();
+
         }
     }
     void DieEnemy()
     {
         Destroy(gameObject, 1f);
         animate.Play();
-        animator.SetBool("Death", true);
+        animator.SetBool("Death", true);    
     }
+
 
     public void setHp(float myHp)
     {
