@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour {
 
@@ -117,7 +118,13 @@ public class playerController : MonoBehaviour {
     public void TakeDamage(float dd)
     {
         health -= dd;
-        
+        if (health <= 0)
+        {
+            animator.SetBool("Death", true);
+
+            SceneManager.LoadScene(3);
+
+        }
     }
 
     void cancelAtack()

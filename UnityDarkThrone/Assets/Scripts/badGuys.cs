@@ -6,6 +6,7 @@ using UnityEngine;
 public class badGuys : MonoBehaviour {
 
     public Animation animate;
+    public Animator animator;
     public float maxhp = 40.0f;
     public float currenthp = 0;
     public GameObject healthBar;
@@ -34,6 +35,8 @@ public class badGuys : MonoBehaviour {
     {
         // Destroy(gameObject, 1f);
         animate.Play();
+        animator.SetBool("Move", false);
+        animator.SetBool("Death", true);
     }
 
     public void setHp(float myHp)
