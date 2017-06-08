@@ -22,7 +22,7 @@ public class SwordDamage2 : MonoBehaviour
         badGuys bg = badguy.GetComponent<badGuys>();
         if (player.GetComponent<playerController>().isAtacking2)
         {
-            bg.TakeDamage(40);
+            bg.TakeDamage(20);
             player.GetComponent<playerController>().isAtacking2 = false;
         }
         
