@@ -2,29 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDamge : MonoBehaviour
+public class EnemyDamage : MonoBehaviour
 {
-    public GameObject player1;
-    private GameObject badguy1;
+    public GameObject badguy;
+    private GameObject player1;
 
 
-    void OnTriggerStay(Collider enemy)
+    void OnTriggerStay(Collider player)
     {
-        if (enemy.CompareTag("Player"))
+        if (player.CompareTag("Player"))
         {
-            badguy1 = enemy.gameObject;
-            Attack1();
+            player1 = player.gameObject;
+            AttackPlayer();
         }
     }
 
-    void Attack1()
+    void AttackPlayer()
     {
-        badGuys bg = badguy1.GetComponent<badGuys>();
-        if (player1.GetComponent<playerController>().isAtacking)
-        {
-            bg.TakeDamage(20);
-            player1.GetComponent<playerController>().isAtacking = false;
-        }
+        playerController pl = player1.GetComponent<playerController>();
+       // if (player1.GetComponent<playerController>().isAtacking)
+       // {
+            pl.TakeDamage(20);
+       //     player1.GetComponent<playerController>().isAtacking = false;
+      //  }
 
     }
 }

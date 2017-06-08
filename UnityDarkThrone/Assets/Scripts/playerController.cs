@@ -10,7 +10,9 @@ public class playerController : MonoBehaviour {
     AudioSource Slash1, Slash2, Walk, Run;
     public Animator animator;
     private float speed = 3f;
-    public float health = 100f;
+    public float maxhealth = 100f;
+    public float health = 0f;
+    public GameObject healthBar;
     public bool isAtacking = false;
     public bool isAtacking2 = false;
     // Use this for initialization  
@@ -21,6 +23,7 @@ public class playerController : MonoBehaviour {
         Slash2 = GetComponent<AudioSource>();
         Walk = GetComponent<AudioSource>();
         Run = GetComponent<AudioSource>();
+        health = maxhealth;
     }
         
     // Update is called once per frame
@@ -115,16 +118,30 @@ public class playerController : MonoBehaviour {
 
     }
 
-    public void TakeDamage(float dd)
+    public void TakeDamage(float d)
     {
-        health -= dd;
-        if (health <= 0)
+        health -= d;
+        float scaledhp = health / maxhealth;
+        setHp(scaledhp);
+        if (scaledhp <= 0.0f)
         {
             animator.SetBool("Death", true);
 
             SceneManager.LoadScene(3);
-
+            DiePlayer();
         }
+    }
+
+    void DiePlayer()
+    {
+        Destroy(gameObject, 1f);
+    }
+
+    public void setHp(float myHp)
+    {
+        if (myHp < 0)
+            myHp = 0;
+        healthBar.transform.localScale = new Vector3(myHp, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
     }
 
     void cancelAtack()

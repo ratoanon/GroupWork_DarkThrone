@@ -10,6 +10,7 @@ public class badGuys : MonoBehaviour {
     public float maxhp = 40.0f;
     public float currenthp = 0;
     public GameObject healthBar;
+    public bool isMoving = true;
     // Use this for initialization
     void Start () {
         currenthp = maxhp;
@@ -33,9 +34,8 @@ public class badGuys : MonoBehaviour {
     }
     void DieEnemy()
     {
-        // Destroy(gameObject, 1f);
+        Destroy(gameObject, 1f);
         animate.Play();
-        animator.SetBool("Move", false);
         animator.SetBool("Death", true);
     }
 
