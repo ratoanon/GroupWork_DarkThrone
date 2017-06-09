@@ -15,10 +15,12 @@ public class playerController : MonoBehaviour {
     public GameObject healthBar;
     public bool isAtacking = false;
     public bool isAtacking2 = false;
+    public float atackRate = 1;
+    private float nextAtack;
     // Use this for initialization  
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.lockState = CursorLockMode.None;
+       // Cursor.lockState = CursorLockMode.None;
         animator = GetComponent<Animator>();
       //  Slash1 = GetComponent<AudioSource>();
        // Slash2 = GetComponent<AudioSource>();
@@ -135,15 +137,19 @@ public class playerController : MonoBehaviour {
 
     public void TakeDamage(float d)
     {
-        health -= d;
-        float scaledhp = health / maxhealth;
-        setHp(scaledhp);
-        if (scaledhp <= 0.0f)
+        if (Time.time > nextAtack)
         {
-            animator.SetBool("Death", true);
+            nextAtack = Time.time + atackRate;
+            health -= d;
+            float scaledhp = health / maxhealth;
+            setHp(scaledhp);
+            if (scaledhp <= 0.0f)
+            {
+                animator.SetBool("Death", true);
 
-            SceneManager.LoadScene(3);
-            DiePlayer();
+                SceneManager.LoadScene(3);
+                DiePlayer();
+            }
         }
     }
 

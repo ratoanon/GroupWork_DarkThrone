@@ -18,7 +18,7 @@ public class EnemySpawn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        spawnWait = Random.Range(7, 9);
+        spawnWait = Random.Range(7,9);
         Enter.GetComponent<AudioSource>();
     }
 

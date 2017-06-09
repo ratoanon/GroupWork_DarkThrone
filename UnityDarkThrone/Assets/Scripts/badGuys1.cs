@@ -12,6 +12,8 @@ public class badGuys1 : MonoBehaviour {
     public float currenthp = 0;
     public GameObject healthBar;
     public bool isMoving = true;
+    public float atackRate = 1;
+    private float nextAtack;
     // Use this for initialization
     void Start () {
         currenthp = maxhp;
@@ -26,15 +28,19 @@ public class badGuys1 : MonoBehaviour {
 
         public void TakeDamage(float d)
     {
-        Hit.PlayOneShot(hit);
-        currenthp -= d;
-        float scaledhp = currenthp / maxhp; 
-        setHp(scaledhp);
-        if (scaledhp <= 0.0f)
+        if (Time.time > nextAtack)
         {
-            SceneManager.LoadScene(4);
-            DieEnemy();
+            nextAtack = Time.time + atackRate;
+            Hit.PlayOneShot(hit);
+            currenthp -= d;
+            float scaledhp = currenthp / maxhp;
+            setHp(scaledhp);
+            if (scaledhp <= 0.0f)
+            {
+                SceneManager.LoadScene(4);
+                DieEnemy();
 
+            }
         }
     }
     void DieEnemy()

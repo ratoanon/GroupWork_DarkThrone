@@ -13,6 +13,8 @@ public class badGuys : MonoBehaviour {
     public float maxhp = 40.0f;
     public float currenthp = 0;
     public GameObject healthBar;
+    public float atackRate = 1;
+    private float nextAtack;
     public bool isMoving = true;
     // Use this for initialization
     void Start () {
@@ -29,22 +31,26 @@ public class badGuys : MonoBehaviour {
 
         public void TakeDamage(float d)
     {
-        Hit.PlayOneShot(hit);
-        currenthp -= d;
-        float scaledhp = currenthp / maxhp; 
-        setHp(scaledhp);
-
-
-        if (scaledhp <= 0.0f)
+        if (Time.time > nextAtack)
         {
-            screech.PlayOneShot(scream);
-            DieEnemy();
+            nextAtack = Time.time + atackRate;
+            Hit.PlayOneShot(hit);
+            currenthp -= d;
+            float scaledhp = currenthp / maxhp;
+            setHp(scaledhp);
 
+
+            if (scaledhp <= 0.0f)
+            {
+                screech.PlayOneShot(scream);
+                DieEnemy();
+
+            }
         }
     }
     void DieEnemy()
     {
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 0.8f);
         animate.Play();
         animator.SetBool("Death", true);    
     }
