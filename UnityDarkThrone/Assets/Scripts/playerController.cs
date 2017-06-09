@@ -45,6 +45,7 @@ public class playerController : MonoBehaviour {
         {
             animator.SetBool("walk", true);
             //Walk.PlayOneShot(run);
+            GetComponent<AudioSource>().UnPause();
 
             if ((Input.GetAxis("Vertical") > 0) && (Input.GetKeyDown("space"))) // ROLL FORWARD
             {
@@ -57,7 +58,8 @@ public class playerController : MonoBehaviour {
         else
         {
             animator.SetBool("walk", false);
-            Walk.Stop();
+            // Walk.Stop();
+            GetComponent<AudioSource>().Pause();
         }
 
 
