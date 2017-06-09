@@ -18,7 +18,7 @@ public class playerController : MonoBehaviour {
     // Use this for initialization  
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.None;
         animator = GetComponent<Animator>();
       //  Slash1 = GetComponent<AudioSource>();
        // Slash2 = GetComponent<AudioSource>();
@@ -31,6 +31,18 @@ public class playerController : MonoBehaviour {
     void Update()
     {
         playerMove();
+
+
+        if (Input.GetKeyDown("escape"))
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        if (Input.GetKeyDown("r"))
+        {
+            SceneManager.LoadScene(1);
+        }
+
         
     }
 
