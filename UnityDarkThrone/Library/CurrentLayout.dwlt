@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 495}
   m_MaxSize: {x: 14004, y: 14045}
   vertical: 0
-  controlID: 21813
+  controlID: 7051
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 495}
   m_MaxSize: {x: 10002, y: 14045}
   vertical: 1
-  controlID: 21814
+  controlID: 7052
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 224}
   m_MaxSize: {x: 8006, y: 4024}
   vertical: 0
-  controlID: 21815
+  controlID: 7053
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -365,10 +365,10 @@ MonoBehaviour:
     width: 213
     height: 346
   m_TreeViewState:
-    scrollPos: {x: 0, y: 183}
-    m_SelectedIDs: f8270000
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: da42fdffd6cefdff64eefdff260efeff840ffeffea1afeffac20feff5a21feffc45dfeff845ffeff7211ffff106cffffbefbffff00000000ee2f000048880000968a0000ee9f0100
+    m_ExpandedIDs: 4af6feffacfafeff3a4fffffec4fffff0653ffffb053ffffae54ffffb654ffffca54ffff5e5affff6c5affff9a6effffd280ffff6081ffff6282ffff6e82ffffae85ffffc285ffffd085ffffaca5ffff34d4ffff56d6ffff02d7ffff04d8ffff10d8ffff50dbfffff0e0fffff8e0ffffbae1ffff72e2ffff36e3ffff56eaffffbefbffff000000000e510000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -387,7 +387,7 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 8}
     m_SearchString: 
   m_ExpandedScenes:
-  - Tutorial
+  - Boss_1
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -423,9 +423,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 5.9066744, y: 4.587064, z: 10.070092}
+    m_Target: {x: 23.703533, y: -4.6656985, z: -2.0395577}
     speed: 2
-    m_Value: {x: 5.9066744, y: 4.587064, z: 10.070092}
+    m_Value: {x: 23.703533, y: -4.6656985, z: -2.0395577}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -448,13 +448,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.29178798, y: -0.31038052, z: 0.10072813, w: -0.8990995}
+    m_Target: {x: 0.15890343, y: 0.75937796, z: -0.20185575, w: 0.59778845}
     speed: 2
-    m_Value: {x: -0.29178798, y: -0.31038052, z: 0.10072813, w: -0.8990996}
+    m_Value: {x: 0.15890342, y: 0.7593779, z: -0.20185573, w: 0.5977884}
   m_Size:
-    m_Target: 1.7485161
+    m_Target: 52.337154
     speed: 2
-    m_Value: 1.7485161
+    m_Value: 52.337154
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -525,7 +525,7 @@ MonoBehaviour:
     m_ValueSerializationHelper:
     - {x: 674.2, y: 231.40002}
     - {x: 592.2, y: 239.40002}
-    - {x: 545.4, y: 303.6}
+    - {x: 832.4, y: 306.19995}
   m_PreviewAnimator: {fileID: 0}
   m_AnimatorController: {fileID: 9100000, guid: e5d19d2ddf014434da19f8abc0b1cb07,
     type: 2}
@@ -581,19 +581,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Materials
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Materials
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Snowydawolf\Desktop\DarkThrone\UnityDarkThrone
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 95}
-    m_SelectedIDs: f8270000
-    m_LastClickedID: 10232
-    m_ExpandedIDs: 000000006e250000d2250000d6250000e625000094260000a6260000b2260000062700002e2700003827000024280000262a00002e2a0000862a00009e2a0000c22a0000062b0000ac2b00005c2c0000bc2c0000d62c0000142d00009a2d00003c2e0000522e0000562e0000fc340000fe34000000350000023500000435000000ca9a3bffffff7f
+    m_SelectedIDs: 6a250000
+    m_LastClickedID: 9578
+    m_ExpandedIDs: 000000006a250000ce250000d2250000e225000090260000a2260000ae260000022700002a2700003427000020280000322a00003a2a0000922a0000aa2a0000ce2a0000122b0000c42b0000742c0000d42c0000ee2c00002c2d0000b42d0000562e00006c2e0000702e00006c3600006e36000070360000723600007436000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -621,7 +621,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000006e250000d2250000d6250000e625000094260000a6260000b2260000062700002e2700003827000024280000262a00002e2a0000862a00009e2a0000c22a0000062b0000ac2b00005c2c0000bc2c0000d62c0000142d00009a2d00003c2e0000522e0000562e0000fc340000fe34000000350000023500000435000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000006a250000ce250000d2250000e225000090260000a2260000ae260000022700002a2700003427000020280000322a00003a2a0000922a0000aa2a0000ce2a0000122b0000c42b0000742c0000d42c0000ee2c00002c2d0000b42d0000562e00006c2e0000702e00006c3600006e36000070360000723600007436000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

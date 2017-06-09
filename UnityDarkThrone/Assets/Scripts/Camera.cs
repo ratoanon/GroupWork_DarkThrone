@@ -22,6 +22,8 @@ public class Camera : MonoBehaviour {
         smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
         smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / smoothing);
         mouseLook += smoothV* sensitivity * Time.deltaTime;
+        mouseLook.y = Mathf.Clamp(mouseLook.y, -50f, 50f);
+
 
         character.transform.rotation = Quaternion.identity;
         character.transform.Rotate (character.transform.up, mouseLook.x);
