@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class badGuys : MonoBehaviour {
 
+    public AudioClip scream, hit;
+    public AudioSource screech, Hit;
     public Animation animate;
     public Animator animator;
     public float maxhp = 40.0f;
@@ -15,6 +17,8 @@ public class badGuys : MonoBehaviour {
     // Use this for initialization
     void Start () {
         currenthp = maxhp;
+        screech = GetComponent<AudioSource>();
+        Hit = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -25,11 +29,15 @@ public class badGuys : MonoBehaviour {
 
         public void TakeDamage(float d)
     {
+        Hit.PlayOneShot(hit);
         currenthp -= d;
         float scaledhp = currenthp / maxhp; 
         setHp(scaledhp);
+
+
         if (scaledhp <= 0.0f)
         {
+            screech.PlayOneShot(scream);
             DieEnemy();
 
         }

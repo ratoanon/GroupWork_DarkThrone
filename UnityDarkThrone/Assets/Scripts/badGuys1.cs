@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class badGuys1 : MonoBehaviour {
-
+    public AudioClip hit;
+    public AudioSource Hit;
     public Animator animator;
     public float maxhp = 40.0f;
     public float currenthp = 0;
@@ -14,6 +15,7 @@ public class badGuys1 : MonoBehaviour {
     // Use this for initialization
     void Start () {
         currenthp = maxhp;
+        Hit = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -24,6 +26,7 @@ public class badGuys1 : MonoBehaviour {
 
         public void TakeDamage(float d)
     {
+        Hit.PlayOneShot(hit);
         currenthp -= d;
         float scaledhp = currenthp / maxhp; 
         setHp(scaledhp);

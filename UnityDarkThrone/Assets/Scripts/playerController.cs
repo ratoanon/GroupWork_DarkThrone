@@ -20,8 +20,8 @@ public class playerController : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         //Cursor.lockState = CursorLockMode.None;
         animator = GetComponent<Animator>();
-        Slash1 = GetComponent<AudioSource>();
-        Slash2 = GetComponent<AudioSource>();
+      //  Slash1 = GetComponent<AudioSource>();
+       // Slash2 = GetComponent<AudioSource>();
         Walk = GetComponent<AudioSource>();
         Run = GetComponent<AudioSource>();
         health = maxhealth;
@@ -104,7 +104,7 @@ public class playerController : MonoBehaviour {
             animator.SetTrigger("slash");
             speed = 0.4f; // atrasar quando ataca
             isAtacking = true;
-            Slash1.PlayOneShot(fight1, 0.6f);
+            //Slash1.PlayOneShot(fight1, 0.6f);
 
             Invoke("cancelAtack", 1f);
         }
@@ -114,7 +114,7 @@ public class playerController : MonoBehaviour {
             animator.SetTrigger("slashup");
             isAtacking2 = true;
             speed = 0.4f;
-            Slash2.PlayOneShot(fight2, 1f);
+           // Slash2.PlayOneShot(fight2, 1f);
 
             Invoke("cancelAtack2", 0.6f);
         }

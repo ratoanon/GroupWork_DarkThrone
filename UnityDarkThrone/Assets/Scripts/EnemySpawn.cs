@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour {
 
+    public AudioClip enter;
+    public AudioSource Enter;
     public Vector3 center;
     public Vector3 size;
     public GameObject Enemy;
@@ -17,6 +19,7 @@ public class EnemySpawn : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         spawnWait = Random.Range(7, 9);
+        Enter.GetComponent<AudioSource>();
     }
 
     void spawn()
@@ -32,6 +35,7 @@ public class EnemySpawn : MonoBehaviour {
         yield return new WaitForSeconds(startWait);
         while (true)
         {
+            Enter.PlayOneShot(enter);
             spawn();
 
             yield return new WaitForSeconds(spawnWait);
