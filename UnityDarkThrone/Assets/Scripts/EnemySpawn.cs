@@ -16,7 +16,7 @@ public class EnemySpawn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        spawnWait = Random.Range(1, 3);
+        spawnWait = Random.Range(7, 9);
     }
 
     void spawn()

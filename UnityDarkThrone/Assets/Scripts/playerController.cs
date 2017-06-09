@@ -18,6 +18,7 @@ public class playerController : MonoBehaviour {
     // Use this for initialization  
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.None;
         animator = GetComponent<Animator>();
         Slash1 = GetComponent<AudioSource>();
         Slash2 = GetComponent<AudioSource>();
